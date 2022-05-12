@@ -1,0 +1,14 @@
+<plugin>
+	<groupId>org.sonarsource.scanner.maven</groupId>
+		<artifactId>sonar-maven-plugin</artifactId>
+		<version>3.7.0.1746</version>
+</plugin>
+
+Run as maven build and enter following commands- 
+
+//No need to run if jacoco is already configured
+jacoco command
+clean org.jacoco.jacoco-maven-plugin:prepare-agent install
+
+sonar command-
+mvn sonar:sonar -Dsonar.login=<security token here>

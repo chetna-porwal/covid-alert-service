@@ -1,0 +1,26 @@
+create new app on heroku
+download and install heroku CLI
+npm install -g heroku
+heroku --version
+heroku login
+
+go to project folder
+
+git init
+heroku git:remote -a <app name in heroku->springboot-first-heroku-app>
+git add .
+git commit -am "any msg here"
+git push heroku master
+
+for configuring database in heroku
+
+create new app
+go to resources
+then add-ons
+search heroku postgres
+submit form 
+click on the app name
+settings
+view credentials
+congfigure heroku postgres credentials in projects application.properties file
+then deploy

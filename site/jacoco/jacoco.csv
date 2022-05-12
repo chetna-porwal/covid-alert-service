@@ -1,0 +1,30 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+CovidAlertService,com.cg.covidalertservice.controller,AlertController,0,12,0,0,0,3,0,3,0,3
+CovidAlertService,com.cg.covidalertservice,CovidAlertServiceApplication,5,6,0,0,2,2,1,2,1,2
+CovidAlertService,org.jacoco.cli.internal,CommandHandler.new OptionDef() {...},10,0,0,0,1,0,1,0,1,0
+CovidAlertService,org.jacoco.cli.internal,CommandHandler.new AbstractList() {...},27,0,0,0,5,0,3,0,3,0
+CovidAlertService,org.jacoco.cli.internal,Command,63,0,0,0,13,0,4,0,4,0
+CovidAlertService,org.jacoco.cli.internal,XmlDocumentation,121,0,4,0,23,0,5,0,3,0
+CovidAlertService,org.jacoco.cli.internal,Main,96,0,6,0,28,0,9,0,6,0
+CovidAlertService,org.jacoco.cli.internal,Main.new Writer() {...},6,0,0,0,4,0,4,0,4,0
+CovidAlertService,org.jacoco.cli.internal,CommandParser,10,0,0,0,4,0,2,0,2,0
+CovidAlertService,org.jacoco.cli.internal,CommandHandler,85,0,4,0,13,0,6,0,4,0
+CovidAlertService,com.cg.covidalertservice.dto,CovidApiData,25,21,0,0,3,4,4,6,4,6
+CovidAlertService,com.cg.covidalertservice.dto,AlertStatus,12,24,0,0,1,5,1,7,1,7
+CovidAlertService,com.cg.covidalertservice.dto,StateData,21,45,0,0,1,8,1,13,1,13
+CovidAlertService,com.cg.covidalertservice.dto,SummaryData,24,52,0,0,1,9,1,15,1,15
+CovidAlertService,com.cg.covidalertservice.dto,CountryData,9,17,0,0,1,4,1,5,1,5
+CovidAlertService,com.cg.covidalertservice.service,Covid19DataProvider,0,55,0,0,0,12,0,4,0,4
+CovidAlertService,com.cg.covidalertservice.service,AlertService,0,79,1,5,0,14,1,5,0,3
+CovidAlertService,org.jacoco.cli.internal.commands,Merge,73,0,4,0,14,0,6,0,4,0
+CovidAlertService,org.jacoco.cli.internal.commands,ExecInfo.new IExecutionDataVisitor() {...},44,0,0,0,3,0,2,0,2,0
+CovidAlertService,org.jacoco.cli.internal.commands,ExecInfo.new ISessionInfoVisitor() {...},38,0,0,0,3,0,2,0,2,0
+CovidAlertService,org.jacoco.cli.internal.commands,ExecInfo,104,0,8,0,23,0,9,0,5,0
+CovidAlertService,org.jacoco.cli.internal.commands,Version,10,0,0,0,4,0,3,0,3,0
+CovidAlertService,org.jacoco.cli.internal.commands,Dump,58,0,0,0,13,0,3,0,3,0
+CovidAlertService,org.jacoco.cli.internal.commands,Dump.new ExecDumpClient() {...},42,0,0,0,5,0,3,0,3,0
+CovidAlertService,org.jacoco.cli.internal.commands,Instrument,154,0,8,0,27,0,9,0,5,0
+CovidAlertService,org.jacoco.cli.internal.commands,ClassInfo.Printer,177,0,10,0,23,0,11,0,6,0
+CovidAlertService,org.jacoco.cli.internal.commands,Report,273,0,18,0,51,0,18,0,9,0
+CovidAlertService,org.jacoco.cli.internal.commands,ClassInfo,51,0,4,0,11,0,5,0,3,0
+CovidAlertService,org.jacoco.cli.internal.commands,AllCommands,76,0,4,0,7,0,4,0,2,0

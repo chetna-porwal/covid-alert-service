@@ -1,0 +1,4 @@
+com\cg\covidalertservice\CovidAlertServiceApplicationTests.class
+com\cg\covidalertservice\service\AlertServiceTest.class
+com\cg\covidalertservice\controller\AlertControllerTest.class
+com\cg\covidalertservice\service\Covid19DataProviderTest.class

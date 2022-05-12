@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AlertService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CovidAlertService</a> &gt; <a href="index.source.html" class="el_package">com.cg.covidalertservice.service</a> &gt; <span class="el_source">AlertService.java</span></div><h1>AlertService.java</h1><pre class="source lang-java linenums">package com.cg.covidalertservice.service;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cg.covidalertservice.dto.AlertStatus;
+import com.cg.covidalertservice.dto.StateData;
+import com.cg.covidalertservice.dto.SummaryData;
+
+@Service
+<span class="fc" id="L13">public class AlertService </span>
+{
+	@Autowired
+	private Covid19DataProvider covid19DataProvider;
+	
+	public AlertStatus getAlertAboutState(String state)
+	{
+<span class="fc" id="L20">		AlertStatus alertStatus = new AlertStatus();</span>
+		
+		//buisness logic to derive the alert here
+<span class="fc" id="L23">		StateData stateData = covid19DataProvider.getStateData(state);</span>
+		
+<span class="fc" id="L25">		alertStatus.setSummaryData(stateData);</span>
+		
+<span class="fc bfc" id="L27" title="All 2 branches covered.">		if(stateData.getTotalConfirmed() &lt; 1000)</span>
+		{
+<span class="fc" id="L29">			alertStatus.setAlertLevel(&quot;GREEN&quot;);</span>
+<span class="fc" id="L30">			alertStatus.setMeasuresToBeTaken(Arrays.asList(&quot;Everything is normal !!&quot;));</span>
+		}
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">		else if (stateData.getTotalConfirmed() &gt;= 1000 &amp;&amp; stateData.getTotalConfirmed() &lt; 10000) </span>
+		{
+<span class="fc" id="L34">			alertStatus.setAlertLevel(&quot;ORANGE&quot;);</span>
+<span class="fc" id="L35">			alertStatus.setMeasuresToBeTaken(Arrays.asList(&quot;Only essential services are allowed.&quot;,&quot;Providing list of essential services&quot;));</span>
+		}
+		else
+		{
+<span class="fc" id="L39">			alertStatus.setAlertLevel(&quot;RED&quot;);</span>
+<span class="fc" id="L40">			alertStatus.setMeasuresToBeTaken(Arrays.asList(&quot;Absolute Lockdown.&quot;,&quot;Only medical and food services are allowed here.&quot;));</span>
+		}
+<span class="fc" id="L42">		return alertStatus;</span>
+	}
+
+	public SummaryData getOverAllSummary() 
+	{
+<span class="fc" id="L47">		return covid19DataProvider.getSummaryData();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

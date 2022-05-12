@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Covid19DataProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CovidAlertService</a> &gt; <a href="index.source.html" class="el_package">com.cg.covidalertservice.service</a> &gt; <span class="el_source">Covid19DataProvider.java</span></div><h1>Covid19DataProvider.java</h1><pre class="source lang-java linenums">package com.cg.covidalertservice.service;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.cg.covidalertservice.dto.CovidApiData;
+import com.cg.covidalertservice.dto.StateData;
+import com.cg.covidalertservice.dto.SummaryData;
+
+@Service
+<span class="fc" id="L14">public class Covid19DataProvider {</span>
+<span class="fc" id="L15">	final String url = &quot;https://api.rootnet.in/covid19-in/stats/latest&quot;;</span>
+
+	@Autowired
+	RestTemplate restTemplate;
+
+	StateData getStateData(String state) {
+<span class="fc" id="L21">		CovidApiData covidApiData = restTemplate.getForObject(url, CovidApiData.class);</span>
+		
+<span class="fc" id="L23">		StateData sd[] = covidApiData.getData().getRegional();</span>
+		
+<span class="fc" id="L25">		return Arrays.stream(sd)</span>
+<span class="fc" id="L26">				.filter(e -&gt; e.getLoc().equalsIgnoreCase(state))</span>
+<span class="fc" id="L27">				.findAny()</span>
+<span class="fc" id="L28">				.orElse(new StateData());</span>
+	}
+
+	public SummaryData getSummaryData() 
+	{
+<span class="fc" id="L33">		CovidApiData covidApiData = restTemplate.getForObject(url, CovidApiData.class);</span>
+		
+<span class="fc" id="L35">		SummaryData summaryData = covidApiData.getData().getSummary();</span>
+<span class="fc" id="L36">		summaryData.setUpdateTime(covidApiData.getLastRefreshed());</span>
+<span class="fc" id="L37">		return summaryData;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
